@@ -1,3 +1,8 @@
+# NPM/YARN
 node_modules
 npm-debug.log
 yarn-error.log
+
+# BUILD
+public/bundle.js
+public/bundle.js.map
