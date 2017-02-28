@@ -10,6 +10,7 @@
     "dev": "webpack-dev-server --open"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",
     "history": "^4.5.1",

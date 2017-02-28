@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import FlatButton from 'material-ui/FlatButton';
-import Popover from 'material-ui/Popover';
-import Menu from 'material-ui/Menu';
+import FlatButton from 'material-ui/FlatButton'
+import Popover from 'material-ui/Popover'
+import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
 
 class HeaderUser extends Component {
@@ -26,7 +26,7 @@ class HeaderUser extends Component {
           onRequestClose={props.handleCloseTap}
         >
           <Menu>
-            <MenuItem primaryText="Sign Out"/>
+            <MenuItem onClick={props.handleSignOut} primaryText="Sign Out"/>
           </Menu>
         </Popover>
       </div>

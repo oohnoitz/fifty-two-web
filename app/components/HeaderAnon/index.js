@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
-import FlatButton from 'material-ui/FlatButton';
+import FlatButton from 'material-ui/FlatButton'
 
 class HeaderAnon extends Component {
   static muiName = 'FlatButton'
@@ -9,7 +10,9 @@ class HeaderAnon extends Component {
     const { style, ...props } = this.props
 
     return (
-      <FlatButton style={style} label="Sign In"/>
+      <Link to={{ pathname: '/auth/signin' }}>
+        <FlatButton style={style} label="Sign In"/>
+      </Link>
     )
   }
 }

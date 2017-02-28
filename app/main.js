@@ -1,6 +1,5 @@
 import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppContainer from 'containers/App'
 import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'
 import routes from './routes'
@@ -12,9 +11,7 @@ const RootContainer = () => {
   return (
     <MuiThemeProvider>
       <Provider store={store}>
-        <AppContainer>
-          <Router history={browserHistory} routes={routes}/>
-        </AppContainer>
+        <Router history={browserHistory} routes={routes}/>
       </Provider>
     </MuiThemeProvider>
   )

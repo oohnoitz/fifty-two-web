@@ -1,7 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import actions from 'store/Auth/actions'
+
 import Header from 'containers/Header'
 
-class MainContainer extends Component {
+class AppContainer extends Component {
+  componentDidMount() {
+    const { dispatch, session } = this.props
+    const token = localStorage.getItem('AuthToken')
+
+    if (token && session.currentUser === null) {
+      dispatch(actions.verify(token))
+    }
+  }
+
   render() {
     return (
       <div>
@@ -12,4 +24,12 @@ class MainContainer extends Component {
   }
 }
 
-export default MainContainer
+const mapStateToProps = (state) => {
+  const { session } = state
+
+  return {
+    session,
+  }
+}
+
+export default connect(mapStateToProps)(AppContainer)

@@ -17,7 +17,8 @@ const config = {
 
   plugins: [
     new DefinePlugin({
-      'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
+      ENV: isDebug ? '"development"' : '"production"',
+      API_ENDPOINT: `"${process.env.API_ENDPOINT}"`,
     }),
     new AssetsPlugin({
       path: WEB_DIR,

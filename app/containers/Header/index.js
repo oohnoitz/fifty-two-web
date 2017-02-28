@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import actions from 'store/Auth/actions'
 
 import AppBar from 'material-ui/AppBar'
 import HeaderAnon from 'components/HeaderAnon'
@@ -10,6 +11,14 @@ class Header extends Component {
     super(props)
 
     this.state = { openUserMenu: false }
+  }
+
+  handleSignOut = (event) => {
+    event.preventDefault()
+
+    const { dispatch } = this.props
+
+    dispatch(actions.logout())
   }
 
   handleTouchTap = (event) => {
@@ -33,6 +42,7 @@ class Header extends Component {
       anchorUserMenuEl: this.state.anchorUserMenuEl,
       handleTouchTap: this.handleTouchTap,
       handleCloseTap: this.handleCloseTap,
+      handleSignOut: this.handleSignOut,
     }
   }
 
