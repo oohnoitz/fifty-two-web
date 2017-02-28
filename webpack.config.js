@@ -1,6 +1,8 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const AssetsPlugin = require('assets-webpack-plugin')
+const DefinePlugin = webpack.DefinePlugin
 
 const MODULES = resolve(__dirname, 'node_modules')
 const APP_DIR = resolve(__dirname, 'app')
@@ -14,7 +16,14 @@ const config = {
   devtool: isDebug ? 'source-map' : false,
 
   plugins: [
-
+    new DefinePlugin({
+      'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
+    }),
+    new AssetsPlugin({
+      path: WEB_DIR,
+      filename: 'bundle.manifest.json',
+      prettyPrint: true,
+    }),
   ],
 
   resolve: {
@@ -23,13 +32,14 @@ const config = {
   },
 
   entry: [
-    `${APP_DIR}/main.js`,
+    `${APP_DIR}/index.js`,
   ],
 
   output: {
     path: WEB_DIR,
     publicPath: '/',
-    filename: 'bundle.js',
+    filename: isDebug ? '[name].js?[hash]' : '[name].[hash].js',
+    chunkFilename: isDebug ? '[id].js?[chunkhash]' : '[id].[chunkhash].js',
   },
 
   module: {

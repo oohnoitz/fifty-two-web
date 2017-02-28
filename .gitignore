@@ -6,3 +6,4 @@ yarn-error.log
 # BUILD
 public/bundle.js
 public/bundle.js.map
+public/bundle.manifest.json
