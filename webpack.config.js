@@ -29,6 +29,11 @@ const config = {
   resolve: {
     extensions: ['.js', '.sass', '.scss'],
     modules: ['node_modules'],
+    alias: {
+      components: resolve(__dirname, 'app/components'),
+      containers: resolve(__dirname, 'app/containers'),
+      store: resolve(__dirname, 'app/store'),
+    },
   },
 
   entry: [
